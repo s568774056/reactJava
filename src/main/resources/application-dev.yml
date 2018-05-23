@@ -1,0 +1,21 @@
+#端口号
+server:
+  port: 7080
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf8
+    username: root
+    password:
+    type: com.alibaba.druid.pool.DruidDataSource
+girl:
+  cupSize: B
+  age: 18
+#微信公众号的应用ID  微信公众号的应用秘钥
+wechat:
+  app_id: wxea3174f9715bdc80
+  secret: b9c42b71405b36a4de50f5328971c669
+
+
+
+
