@@ -17,7 +17,7 @@ import java.util.Map;
 @RequestMapping("/hello")
 public class HelloController {
 
-    private String mUrl = " http://bn8iyt.natappfree.cc/pages/user/login";
+    private String mUrl = "http://zj27qd.natappfree.cc";
 
     @GetMapping(value = "/test2")
     public String weChat(@RequestParam(value = "signature") String signature,

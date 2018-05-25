@@ -1,6 +1,6 @@
 #端口号
 server:
-  port: 7080
+  port: 7777
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver

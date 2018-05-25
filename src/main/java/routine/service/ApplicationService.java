@@ -4,12 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import routine.dao.PaperDao;
+import routine.domain.Application;
 import routine.domain.Paper;
 import routine.domain.Result;
 import routine.enums.ResultEnum;
 import routine.exception.SoftwareException;
 import routine.utils.ResultUtil;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,7 +21,7 @@ import java.util.Map;
  * @author Song
  */
 @Service
-public class PaperService {
+public class ApplicationService {
 
     @Autowired
     private PaperDao dataDao;
@@ -30,9 +33,11 @@ public class PaperService {
     }
 
     @Transactional
-    public Result insert(Paper paper) {
+    public Result insert(Application app) {
 
-            return ResultUtil.success(dataDao.insert(paper));
+ /*       SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        app.setCreateDate(df.format(new Date()));*/
+       return ResultUtil.success(dataDao.insert(app));
     }
 
     public void getAge(Integer id) throws Exception{

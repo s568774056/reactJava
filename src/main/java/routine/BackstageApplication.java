@@ -2,13 +2,15 @@ package routine;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 import java.math.BigDecimal;
 @SpringBootApplication
 //添加过滤器
 //@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 //@EnableAutoConfiguration
-public class BackstageApplication {
+public class BackstageApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
 		SpringApplication.run(BackstageApplication.class, args);
@@ -18,4 +20,9 @@ public class BackstageApplication {
 		System.out.println(bd.compareTo(BigDecimal.ZERO)==1);
 		System.out.println(" / ".split("/").length);*/
 	}
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(BackstageApplication.class);
+	}
+
 }

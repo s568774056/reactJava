@@ -34,35 +34,23 @@ public class HttpAspect {
     public void doBefore(JoinPoint joinPoint) {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
+        System.out.println(">>><doBefore:请求开始>:");
 
         //url
-        logger.info("url={}", request.getRequestURL());
-
-        //method
-        logger.info("method={}", request.getMethod());
-
-        //ip
-        logger.info("ip={}", request.getRemoteAddr());
-
-        //类方法
-        logger.info("class_method={}", joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
-
-        //参数
-        logger.info("args={}", joinPoint.getArgs());
+        logger.info("<doBefore:请求开始>:","  [url:]"+ request.getRequestURL()+"  [method:]"+request.getMethod()+"  [ip:]"+request.getRemoteAddr()+
+                     "  [class_method:]"+ joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName()+
+                     "  [args:]"+joinPoint.getArgs());
     }
 
     @After("log()")
     public void doAfter() {
-        logger.info("222222222222");
+        logger.info("<doAfter>请求完成");
     }
 
     //获取返回的内容
     @AfterReturning(returning = "object", pointcut = "log()")
     public void doAfterReturning(Object object) {
-        logger.info("response={}", object.toString());
+        logger.info("<doAfterReturning:请求返回结果>:", object.toString());
     }
-
-
-
 
 }
