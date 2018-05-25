@@ -30,7 +30,7 @@ public class ApplicationController {
 	 * Valid 注解表示要验证这个对象 BindingResult:验证结果
 	 */
 	@PutMapping(value = "/add")
-	public Result<?> add(@RequestParam(value = "mBrName",required=false) String mBrName) {
+	public Result<?> add(@RequestBody Application app) {
 
 		return service.insert(null);
 	}
